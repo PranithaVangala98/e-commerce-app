@@ -1,36 +1,38 @@
 <ion-header [translucent]="true" style="text-align: center">
   <ion-toolbar>
     <ion-title>
-      SignUp
+      <b>SignUp</b>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-content">
   <form [formGroup]="Signupform">
-    <ion-item>
-      <ion-label position="floating">First Name</ion-label>
-      <ion-input formControlName="fname"></ion-input>
+    <ion-item fill="outline">
+      <ion-input label=" First Name" labelPlacement="floating" placeholder="Enter your First Name" [clearInput]="true"
+        fill="outline"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Last Name</ion-label>
-      <ion-input formControlName="lname"></ion-input>
+      <ion-input label=" Last Name" labelPlacement="floating" placeholder="Enter your Last Name"
+        [clearInput]="true"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email"></ion-input>
+      <ion-input label="Email" type="email" labelPlacement="floating" placeholder="Enter your email address"
+        [clearInput]="true"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-input label="Contact Number" labelPlacement="floating" type="tel" placeholder="Enter your phone number"
+        [clearInput]="true"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+      <ion-input label="Password " labelPlacement="floating" type="password" value="password"></ion-input>
     </ion-item>
-
-    <ion-button shape="round" expand="full" st>SignUp</ion-button>
-    <ion-button shape="round" expand="full">Login</ion-button>
-
+    <ion-item>
+      <ion-input label="Confirm Password " labelPlacement="floating" type="password" value="password"></ion-input>
+    </ion-item>
+    <div style="text-align: center; margin-top: 15px;">
+      <ion-button style="padding-right: 20px;" shape="round" expand="half" st>SignUp</ion-button>
+      <ion-button shape="round" expand="half">Login</ion-button>
+    </div>
   </form>
 </ion-content>
