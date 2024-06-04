@@ -1,40 +1,30 @@
 <ion-header [translucent]="true" style="text-align: center">
   <ion-toolbar>
     <ion-title>
-      <b>SignUp</b>
+      <b>Login</b>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-content">
-    <form [formGroup]="Signupform">
+    <form [formGroup]="Loginform">
       <ion-item>
-        <ion-input label=" First Name" labelPlacement="floating" placeholder="Enter your First Name"
-          [clearInput]="true"></ion-input>
+        <ion-input label="Email/User Name" type="email" labelPlacement="floating" placeholder="Enter your email address"
+          [clearInput]="true" formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label=" Last Name" labelPlacement="floating" placeholder="Enter your Last Name"
-          [clearInput]="true"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Email" type="email" labelPlacement="floating" placeholder="Enter your email address"
-          [clearInput]="true"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Contact Number" labelPlacement="floating" type="tel" placeholder="Enter your phone number"
-          [clearInput]="true"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Password " labelPlacement="floating" type="password" value="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Confirm Password " labelPlacement="floating" type="password" value="password"></ion-input>
-      </ion-item>
+        <ion-input label="Password " labelPlacement="floating" type="{{ showPassword ? 'text' : 'password' }}"
+          value="password" formControlName="password"></ion-input>
 
+        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end"
+          (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+      <div style="margin: 20px 0px 20px 20px; color: blue; " (click)="navigateToResetpassword()"><u>Forgot password</u>
+      </div>
       <div style="text-align: center; margin-top: 25px;">
-        <ion-button style="padding-right: 20px;" shape="round" expand="half">SignUp</ion-button>
-        <ion-button shape="round" expand="half">Login</ion-button>
+        <ion-button shape="round" expand="half" (click)="Login()">Login</ion-button>
+        <ion-button shape="round" expand="half" href="/signup">Sign Up</ion-button>
       </div>
     </form>
   </div>

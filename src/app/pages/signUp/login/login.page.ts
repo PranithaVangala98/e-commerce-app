@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +8,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  Signupform!: FormGroup;
+  Loginform!: FormGroup;
+  showPassword: boolean = false;
+
   constructor(
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-
-    this.Signupform = this.formbuilder.group({
+    this.Loginform = this.formbuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [''],
 
     })
   }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
+  Login() {
+
+  }
+  navigateToResetpassword() {
+    this.router.navigate(['/reset-password'])
+  }
 }

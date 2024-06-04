@@ -1,0 +1,49 @@
+<ion-header [translucent]="true" style="text-align: center">
+  <ion-toolbar>
+    <ion-title>
+      <b>SignUp</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-content">
+    <form [formGroup]="Signupform">
+      <ion-item>
+        <ion-input label=" First Name" labelPlacement="floating" placeholder="Enter your First Name" [clearInput]="true"
+          formControlName="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label=" Last Name" labelPlacement="floating" placeholder="Enter your Last Name" [clearInput]="true"
+          formControlName="lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Email" type="email" labelPlacement="floating" placeholder="Enter your email address"
+          [clearInput]="true" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Contact Number" labelPlacement="floating" type="tel" placeholder="Enter your phone number"
+          [clearInput]="true" formControlName="contactNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Password " labelPlacement="floating" type="{{ showPassword ? 'text' : 'password' }}"
+          value="password" formControlName="password"></ion-input>
+        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end"
+          (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Confirm Password " labelPlacement="floating"
+          type="{{showConfirmPassword ? 'text' : 'password'}}" value="password"
+          formControlName="confirmPassword"></ion-input>
+        <ion-icon name="{{showConfirmPassword?'eye-off' :'eye'}}" slot="end"
+          (click)="toggleConfirmPasswordVisibility()"></ion-icon>
+
+      </ion-item>
+
+      <div style="text-align: center; margin-top: 25px;">
+        <ion-button style="padding-right: 20px;" shape="round" expand="half" href="/profile">SignUp</ion-button>
+        <ion-button shape="round" expand="half" (click)="navigateToLogin()" href="/login">Login</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
