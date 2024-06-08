@@ -10,6 +10,7 @@ export class ResetPasswordPage implements OnInit {
   resetForm!: FormGroup;
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
+  passwordmatch: boolean = false;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -25,5 +26,18 @@ export class ResetPasswordPage implements OnInit {
   }
   toggleConfirmPasswordVisibility() {
     this.showConfirmPassword = !this.showConfirmPassword
+  }
+
+  resetPassword() {
+    let password = this.resetForm.controls['password'].value;
+    let confirmPassword = this.resetForm.controls['confirmPassword'].value;
+    if (password !== confirmPassword) {
+      this.passwordmatch = true;
+    } else {
+      let data = {
+        password: this.resetForm.controls['password'].value,
+
+      }
+    }
   }
 }

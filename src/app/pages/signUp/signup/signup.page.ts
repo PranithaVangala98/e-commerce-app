@@ -11,6 +11,7 @@ export class SignupPage implements OnInit {
   Signupform!: FormGroup;
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
+  passwordmatch: boolean = false;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -35,6 +36,24 @@ export class SignupPage implements OnInit {
   }
   navigateToLogin() {
 
+  }
+  signup() {
+    let password = this.Signupform.controls['password'].value;
+    let confirmPassword = this.Signupform.controls['confirmPassword'].value;
+    if (password !== confirmPassword) {
+      this.passwordmatch = true;
+    } else {
+      if (this.Signupform.valid) {
+        let data = {
+          firstName: this.Signupform.controls['firstName'].value,
+          lastName: this.Signupform.controls['lastName'].value,
+          email: this.Signupform.controls['email'].value,
+          contactNumber: this.Signupform.controls['contactNumber'].value,
+          password: this.Signupform.controls['password'].value,
+        }
+        console.log('data', data)
+      }
+    }
   }
 
 }

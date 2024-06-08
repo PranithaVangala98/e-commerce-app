@@ -12,7 +12,9 @@
       <ion-item>
         <ion-input label=" First Name" labelPlacement="floating" placeholder="Enter your First Name" [clearInput]="true"
           formControlName="firstName"></ion-input>
+
       </ion-item>
+
       <ion-item>
         <ion-input label=" Last Name" labelPlacement="floating" placeholder="Enter your Last Name" [clearInput]="true"
           formControlName="lastName"></ion-input>
@@ -37,11 +39,14 @@
           formControlName="confirmPassword"></ion-input>
         <ion-icon name="{{showConfirmPassword?'eye-off' :'eye'}}" slot="end"
           (click)="toggleConfirmPasswordVisibility()"></ion-icon>
-
       </ion-item>
+      <ng-container *ngIf="passwordmatch">
+        <ion-text color="danger" style="margin-left:16px; font-size: small;">Password doesn't match.</ion-text>
+      </ng-container>
 
       <div style="text-align: center; margin-top: 25px;">
-        <ion-button style="padding-right: 20px;" shape="round" expand="half" href="/profile">SignUp</ion-button>
+        <ion-button type="submit" style="padding-right: 20px;" shape="round" (click)="signup()" expand="half"
+          href="/profile" [disabled]="Signupform.invalid">SignUp</ion-button>
         <ion-button shape="round" expand="half" (click)="navigateToLogin()" href="/login">Login</ion-button>
       </div>
     </form>
