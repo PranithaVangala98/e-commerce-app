@@ -28,8 +28,8 @@
           [clearInput]="true" formControlName="contactNumber"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Password " labelPlacement="floating" type="{{ showPassword ? 'text' : 'password' }}"
-          value="password" formControlName="password"></ion-input>
+        <ion-input minlength="8" maxlength="20" label="Password " labelPlacement="floating"
+          type="{{ showPassword ? 'text' : 'password' }}" value="password" formControlName="password"></ion-input>
         <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end"
           (click)="togglePasswordVisibility()"></ion-icon>
       </ion-item>
